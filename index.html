@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <!-- Include Tailwind CSS via CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Apply a smooth transition for the background color change */
+        body {
+            transition: background-color 0.8s ease-in-out;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+
+    <div class="text-center p-8 bg-white/10 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 max-w-sm w-full">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+            Random Color Generator
+        </h1>
+        <p class="text-gray-300 mb-8 max-w-xs mx-auto">
+            Click the button below to change the background to a new, random color.
+        </p>
+        <button id="colorButton" class="
+            px-8 py-3 rounded-full text-lg font-semibold
+            bg-white text-gray-900 shadow-lg
+            transition-transform duration-300 ease-in-out
+            hover:scale-105 hover:bg-gray-100
+            focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50
+            ">
+            Change Color
+        </button>
+    </div>
+
+    <script>
+        // Get the button element from the DOM
+        const colorButton = document.getElementById('colorButton');
+        const body = document.body;
+
+        // Function to generate a random RGB color string
+        function generateRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Add an event listener to the button
+        // This function will be called every time the button is clicked
+        colorButton.addEventListener('click', () => {
+            // Generate a random color and apply it to the body's background
+            body.style.backgroundColor = generateRandomColor();
+        });
+    </script>
+
+</body>
+</html>
+
+
+
